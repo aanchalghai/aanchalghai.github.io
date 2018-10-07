@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/styles-merged.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+
+  </head>
+  <body>
+
+  <!-- START: header -->
+
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="{% url 'index' %}" class="probootstrap-logo">SHELTER <span> EASE</span></a>
+
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          {% if user.is_authenticated %}
+          <ul class="probootstrap-main-nav">
+            <li class="active"><a href="{% url 'index' %}">{{user.first_name}} {{user.last_name}}</a></li>
+            <li><a href="{% url 'properties' %}">Properties</a></li>
+            <li><a href="{% url 'ass' %}">Listing</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'form' %}">DashBoard</a></li>
+			      <li><a href="{% url 'logout' %}">logout</a></li>
+		      </ul>
+          {% else %}
+          <ul class="probootstrap-main-nav">
+            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'properties' %}">Properties</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+			      <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Signup</a></li>
+		      </ul>
+          {% endif %}
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+            <h5>Connect</h5>
+            <ul class="social-buttons">
+              <li><a href="#"><i class="icon-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-facebook2"></i></a></li>
+              <li><a href="#"><i class="icon-instagram2"></i></a></li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+
+  {% block body_block %}
+
+  {% endblock body_block%}
+
+
+
+  <!-- START: footer -->
+  <footer class="probootstrap-footer probootstrap-bg" style="background-image: url(img/slider_3.jpg)">
+    <div class="container">
+      <div class="row mb60">
+        <div class="col-md-3">
+          <div class="probootstrap-footer-widget">
+            <h4 class="heading">About Haus.</h4>
+            <p>Far far away, behind the word mountains, there live the blind texts. </p>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-footer-widget probootstrap-link-wrap">
+            <h4 class="heading">Quick Links</h4>
+            <ul class="stack-link">
+              <li><a href="#">Property Listing</a></li>
+              <li><a href="#">Rent Properties</a></li>
+              <li><a href="#">Sell Properties</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-footer-widget">
+            <h4 class="heading">Popular Cities</h4>
+            <ul class="stack-link">
+              <li><a href="#">GURGAON <small>(100 properties)</small></a></li>
+              <li><a href="#">DELHI <small>(100 properties)</small></a></li>
+              <li><a href="#">NOIDA <small>(100 properties)</small></a></li>
+              <li><a href="#">BANGLORE <small>(100 properties)</small></a></li>
+              <li><a href="#">HYDERABAD <small>(100 properties)</small></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-footer-widget probootstrap-link-wrap">
+            <h4 class="heading">Subscribe</h4>
+            <p>Far far away behind the word mountains far from.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+
+
+  <script src="{% static "js/scripts.min.js" %}"></script>
+  <script src="{% static "js/main.min.js" %}"></script>
+  <script src="{% static "js/custom.js.js" %}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center section-heading">
+          <h2>Log in</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {% for message in messages %}
+            <div class="alert alert-success">
+              <a class="close" href="{% url 'login' %}" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+          {% endfor %}
+          <form method="post" class="probootstrap-form probootstrap-form-box">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="username" name="username" id="username" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="username">Password</label>
+              <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group mb50">
+              <input type="submit" value="Log in" class="btn btn-primary btn-block">
+            </div>
+            <div class="form-group text-center">
+              <p class="form-note-link"><small><a href="{% url 'signup' %}">Don't have an account? Sign Up for free</a></small> </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}

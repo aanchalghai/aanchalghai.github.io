@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="#">Home</a><span>About</span>
+              </div>
+              <h1>About Us</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url({% static 'img/bb.jpg' %});"></li>
+      <li style="background-image: url({% static 'img/bb.jpg' %});"></li>
+      <li style="background-image: url({% static 'img/bb.jpg' %});"></li>
+    </ul>
+  </section>
+  <!-- END: slider  -->
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row heading">
+        <div class="col-md-12"><h2 class="mt0 mb50 text-center">Our Company</h2></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p><img src="{% static 'img/about.jpg' %}" class="img-responsive" alt=""></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Our Mission</h2>
+          <p>HAUS. offers you a culture that is all about innovation and winning. It challenges you and brings out the absolute best out of you. The dynamism here is such that it brings out the next level in you, unleashing your true potential much more than you have ever imagined. This will eventually turn you into a high-performer who is full of ideas, solutions and unmatchable confidence.</p>  </div>
+        <div class="col-md-6">
+          <h2>Our Vision</h2>
+          <p>Property portal and has been adjudged as the most preferred property site in India, by independent surveys. The portal provides a platform for property buyers and sellers to locate properties of interest and source information on the real estate space in a transparent and unambiguous manner.</p>    </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-half">
+    <div class="image-wrap">
+      <div class="image" style="background-image: url(img/slider_2.jpg);"></div>
+    </div>
+
+  </section>
+  <section class="probootstrap-half reverse">
+    <div class="image-wrap">
+      <div class="image" style="background-image: url({% static 'img/slider_5.jpg' %});"></div>
+    </div>
+    <div class="text">
+      <p class="mb10 subtitle">Why Choose Us</p>
+      <h3 class="mt0 mb40">You Will Love Our Services</h3>
+      <p>What to ask landlord before renting a house is very important to ensure that you stay there happy for a long time. We tell you the main questions to ask that form a checklist to look for when renting a house.
+
+If buying a house is a big decision, finding a house for rent is not in any way smaller. Finding the right apartment to rent is a big decision as it affects your life and lifestyle. It affects everything from your commuting time to where you eat and sleep to where you shop for groceries and whether you can easily host guests.
+
+Before you finally make up your mind about the area, make sure you have asked the right questions before renting. Doing your homework is very important because after you have signed a lease, it may become difficult to cancel it. Here is a set of questions that you should ask when looking for an apartment to rent:</p>
+</p>
+
+    </div>
+  </section>
+
+{% endblock %}

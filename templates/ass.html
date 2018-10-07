@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<br><br><br><br>
+<div id="main"style="margin-top:30px;">
+  </div>
+  </div>
+</nav>
+<div class="clearfix"></div>
+<div id="content">
+  <div class="container">
+    <div class="row justify-content-md-center">
+          <div class="col col-lg-12 col-xl-10">
+        <div class="row has-sidebar">
+                  <div class="col-md-7 col-lg-8 col-xl-8">
+            <div class="page-header bordered">
+              <h1>Submit your property <small>We've over 15 Lac buyers and tenants for you!</small></h1>
+            </div>
+            {% for message in messages %}
+
+                         <div class="alert alert-success">
+                             <a class="close" href="{% url 'ass' %}" data-dismiss="alert">×</a>
+
+                             {{ message }}
+
+                         </div>
+            {% endfor %}
+            <form role="form" enctype="multipart/form-data" method="POST">
+              {% csrf_token %}
+              <h3 class="subheadline">Basic Details</h3>
+              <div class="form-group">
+                <label for="title">Property Title</label>
+                {{listing_form.title}}
+              </div>
+              <div class="form-group">
+                <label for="title">Rent/Sale</label>
+                <div class="ui-select">
+                  {{ listing_form.category}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Price(in Rupees)</label>
+                    {{ listing_form.price}}
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Bedrooms</label>
+                    {{ listing_form.bedrooms }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Bathrooms</label>
+                    {{listing_form.bathroom}}
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Area (sqft.)</label>
+                    {{listing_form.area}}
+                  </div>
+                </div>
+              </div>
+              <h3 class="subheadline">Location</h3>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Locality</label>
+                    {{ listing_form.locality}}
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>City</label>
+                    {{ listing_form.city}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>State</label>
+                    {{ listing_form.state}}
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Country</label>
+                    {{listing_form.country}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Pincode</label>
+                    {{ listing_form.pin_code}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Property Description</label>
+                {{listing_form.description}}
+              </div>
+              <!-- <div class="form-group">
+                <h3 class="subheadline">Upload Photos</h3>
+                <div class="ui-dropzone">
+                  <div class="icon"></div>
+                  <div>Drag and drop images or click to upload</div>
+                  {{listing_form.pictures}}
+                </div>
+              </div> -->
+              <hr>
+              <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-primary">Submit Property</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvuspZieDAMlpAVAe2qwlvkk8oQU34dtg&libraries=places&callback=initAutocomplete" async defer></script>
+
+{% endblock %}

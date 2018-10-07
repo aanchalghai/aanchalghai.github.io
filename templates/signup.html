@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <section class="probootstrap-section">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 text-center section-heading">
+          <h2>Sign up</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {% for message in messages %}
+
+                       <div class="alert alert-success">
+                           <a class="close" href="{% url 'signup' %}" data-dismiss="alert">×</a>
+
+                           {{ message }}
+
+                       </div>
+          {% endfor %}
+          <form enctype="multipart/form-data" method="POST" class="probootstrap-form probootstrap-form-box">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username</label>
+              {{user_form.username}}
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              {{user_form.email}}
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              {{user_form.password1}}
+            </div>
+            <div class="form-group">
+              <label for="password">Re-type Password</label>
+              {{user_form.password2}}
+            </div>
+            <div class="form-group mb50">
+              <input type="submit" value="Sign up" class="btn btn-primary btn-block">
+            </div>
+            <div class="form-group text-center">
+              <p class="form-note-link"><small><a href="{% url 'login' %}">Already have an account? Login Here</a></small></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
